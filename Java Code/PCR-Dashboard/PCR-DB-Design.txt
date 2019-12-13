@@ -1,0 +1,28 @@
+Daily - 
+
+1. download fo - bhav copy in csv - https://www.nseindia.com/content/historical/DERIVATIVES/2019/NOV/fo19NOV2019bhav.csv.zip
+2. upload to table.
+
+
+Initial - 
+
+1. download bhav copy for 3 months from - https://www.nseindia.com/products/content/derivatives/equities/archieve_fo.htm
+2. upload to table.
+
+
+
+
+
+
+
+
+
+
+
+------------------------ Requirements from Parveen ----------------------------
+
+
+1. PCR from Bloomberg quint
+2. OTM PCR from nse option chain - calculated manually
+3.full option chain for all stocks concerned including next months option chain
+4. Futures OI with increase or decrease and futures premium
