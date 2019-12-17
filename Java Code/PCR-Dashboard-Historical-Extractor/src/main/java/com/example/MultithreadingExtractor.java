@@ -143,7 +143,7 @@ public class MultithreadingExtractor {
 
 		Date dateTo = cal.getTime();
 
-		cal.add(Calendar.DATE, -365);
+		cal.add(Calendar.DATE, -235);
 
 		Date dateTarget = cal.getTime();
 
@@ -205,7 +205,7 @@ public class MultithreadingExtractor {
 			// TODO Auto-generated catch block
 		}
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 	}
 

@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DataExtractor {
+public class FuturesDataExtractor {
 	
 	
 	String folderName = "";
@@ -20,7 +20,7 @@ public class DataExtractor {
 	 @Autowired
 	 private JdbcTemplate jdbcTemplate;
 	
-	public DataExtractor() {
+	public FuturesDataExtractor() {
 
 		try {
 			setUp();
@@ -55,14 +55,14 @@ public class DataExtractor {
 
 
 
-		String sql = "LOAD DATA LOCAL INFILE '" + filePath + "' " + "INTO TABLE daily_option_data "
+		String sql = "LOAD DATA LOCAL INFILE '" + filePath + "' " + "INTO TABLE daily_future_data "
 				+ "FIELDS TERMINATED BY ',' "
 				// + "OPTIONALLY ENCLOSED BY '\"' "
 				// + " LINES TERMINATED BY '\r\n' "
 				 + "IGNORE 1 LINES " //+ "IGNORE 1 COLUMNS "
-				+ "(@dummy,SYMBOL,@my_date,strike_price,option_type,open_price,high_price,low_price,close_price,"
-				+ "open_interest,traded_quantity,no_of_contracts,no_of_trades,notional_value,"
-				+ "premium_value) " + "set exp_date = str_to_date(@my_date,'%d/%m/%Y'),"
+				+ "(@dummy,SYMBOL,@my_date,open_price,high_price,low_price,close_price,"
+				+ "open_interest,traded_value,traded_quantity,no_of_contracts,no_of_trades) " 
+				+ "set exp_date = str_to_date(@my_date,'%d/%m/%Y'),"
 						+ " curr_date = str_to_date('"+dateOfUpload+"','%d%m%Y') ";
 
 		
@@ -81,18 +81,20 @@ public class DataExtractor {
 	}
 
 
-	public static void main(String[] args) throws Exception {
+/*	public static void main(String[] args) throws Exception {
 
-		DataExtractor opExtractor = new DataExtractor();
+		FuturesDataExtractor opExtractor = new FuturesDataExtractor();
 
 		opExtractor.loadDataToDB(opExtractor.folderName+"\\\\op01032019.csv","01032019",3);
-	}
+	}*/
 	
 	public void manageExtraction() throws Exception {
 		
 		// loadDataToDB(folderName+"\\\\op01032019.csv","01032019",3);
 		
-		loadDataForDateRange();
+		//loadDataToDB(this.folderName+"\\\\fo01032019.csv","01032019",3);
+		
+		 loadDataForDateRange();
 	}
 	
 	private void loadDataForDateRange() throws Exception {
@@ -115,7 +117,7 @@ public class DataExtractor {
 
 			String downloadDateTarget = new SimpleDateFormat("ddMMyyyy").format(dateTarget);
 
-			loadDataToDB(folderName+"\\\\op"+downloadDateTarget+".csv",downloadDateTarget,3);
+			loadDataToDB(folderName+"\\\\fo"+downloadDateTarget+".csv",downloadDateTarget,3);
 
 			Calendar calNew = Calendar.getInstance();
 

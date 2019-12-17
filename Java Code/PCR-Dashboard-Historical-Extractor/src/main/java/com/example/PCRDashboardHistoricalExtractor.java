@@ -16,7 +16,10 @@ public class PCRDashboardHistoricalExtractor {
 	@Bean
 	public String startApp(ApplicationContext ctx) throws BeansException, Exception {
 		
-		ctx.getBean(DataExtractor.class).manageExtraction();
+		ctx.getBean(OptionsDataExtractor.class).manageExtraction();
+		
+		ctx.getBean(FuturesDataExtractor.class).manageExtraction();
+
 		
 		return "";
 	}
