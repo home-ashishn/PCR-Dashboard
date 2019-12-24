@@ -101,7 +101,7 @@ public class OptionsDataExtractor {
 
 		Date dateTo = cal.getTime();
 
-		cal.add(Calendar.DATE, -365);
+		cal.add(Calendar.DATE, -375);
 
 		Date dateTarget = cal.getTime();
 

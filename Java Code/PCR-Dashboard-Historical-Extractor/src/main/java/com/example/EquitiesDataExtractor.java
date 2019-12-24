@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FuturesDataExtractor {
+public class EquitiesDataExtractor {
 	
 	
 	String folderName = "";
@@ -20,7 +20,7 @@ public class FuturesDataExtractor {
 	 @Autowired
 	 private JdbcTemplate jdbcTemplate;
 	
-	public FuturesDataExtractor() {
+	public EquitiesDataExtractor() {
 
 		try {
 			setUp();
@@ -35,7 +35,7 @@ public class FuturesDataExtractor {
 	
 	private void setUp() {
 		
-		folderName = "E:\\\\Self\\\\Work\\\\NSE Files Info\\\\NSE_Downloads\\\\FO_Historical\\\\csv";
+		folderName = "E:\\\\Self\\\\Work\\\\NSE Files Info\\\\NSE_Downloads\\\\EQ_Historical\\\\csv";
 	}
 
 
@@ -55,15 +55,14 @@ public class FuturesDataExtractor {
 
 
 
-		String sql = "LOAD DATA LOCAL INFILE '" + filePath + "' " + "INTO TABLE daily_future_data "
+		String sql = "LOAD DATA LOCAL INFILE '" + filePath + "' " + "INTO TABLE daily_equity_data "
 				+ "FIELDS TERMINATED BY ',' "
 				// + "OPTIONALLY ENCLOSED BY '\"' "
 				// + " LINES TERMINATED BY '\r\n' "
 				 + "IGNORE 1 LINES " //+ "IGNORE 1 COLUMNS "
-				+ "(@dummy,SYMBOL,@my_date,open_price,high_price,low_price,close_price,"
-				+ "open_interest,traded_value,traded_quantity,no_of_contracts,no_of_trades) " 
-				+ "set exp_date = str_to_date(@my_date,'%d/%m/%Y'),"
-						+ " curr_date = str_to_date('"+dateOfUpload+"','%d%m%Y') ";
+				+ "(SYMBOL,series,open_price,high_price,low_price,close_price,last_price,"
+				+ "previous_close,traded_quantity,traded_value,@dummy,no_of_trades) " 
+				+ "set curr_date = str_to_date('"+dateOfUpload+"','%d%b%Y') ";
 
 		
 
@@ -103,7 +102,7 @@ public class FuturesDataExtractor {
 
 		Date dateTo = cal.getTime();
 
-		cal.add(Calendar.DATE, -375);
+		cal.add(Calendar.DATE, -377);
 
 		Date dateTarget = cal.getTime();
 
@@ -115,9 +114,9 @@ public class FuturesDataExtractor {
 		while (dateCounter.before(dateTo)) {
 
 
-			String downloadDateTarget = new SimpleDateFormat("ddMMyyyy").format(dateTarget);
+			String downloadDateTarget = new SimpleDateFormat("ddMMMyyyy").format(dateTarget);
 
-			loadDataToDB(folderName+"\\\\fo"+downloadDateTarget+".csv",downloadDateTarget,3);
+			loadDataToDB(folderName+"\\\\cm"+downloadDateTarget+ "bhav.csv",downloadDateTarget,3);
 
 			Calendar calNew = Calendar.getInstance();
 

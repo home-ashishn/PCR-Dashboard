@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class MultithreadingManager {
 
 	@Autowired
-	private MultithreadingExtractor multithreadingExtractor;
+	private DerivativesFileExtractor multithreadingExtractor;
 
 	@Value("${scrapping.debug}")
 	private boolean scrappingDebug;

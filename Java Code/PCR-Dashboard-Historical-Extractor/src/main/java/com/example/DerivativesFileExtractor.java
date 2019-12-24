@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 //@Component
-public class MultithreadingExtractor {
+public class DerivativesFileExtractor {
 
 	private WebDriver driver;
 	private String baseUrl;
@@ -25,7 +25,7 @@ public class MultithreadingExtractor {
 
 	private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
-	public MultithreadingExtractor() {
+	public DerivativesFileExtractor() {
 
 		try {
 			setUp();
@@ -50,7 +50,7 @@ public class MultithreadingExtractor {
 		 * "D:\\NSE_Downloads\\Equity_Historical" );
 		 */
 		if ("Mac OS X".equals(System.getProperty("os.name"))) {
-			foldername = "/Users/ashishnarang/nse-product-artifacts/NSE_Downloads/Equity_Historical";
+			foldername = "/Users/ashishnarang/nse-product-artifacts/NSE_Downloads/FO_Historical";
 		} else {
 			foldername = "E:\\Self\\\\Work\\NSE Files Info\\NSE_Downloads\\FO_Historical";
 		}
@@ -211,7 +211,7 @@ public class MultithreadingExtractor {
 
 	public static void main(String[] args) throws Exception {
 
-		MultithreadingExtractor opExtractor = new MultithreadingExtractor();
+		DerivativesFileExtractor opExtractor = new DerivativesFileExtractor();
 
 		opExtractor.downloadDataForDateRange();
 	}
