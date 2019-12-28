@@ -6,9 +6,6 @@ $(document).ready( function () {
 			"aoColumns": [
 			      { "mData": "symbol"},
 		          { "mData": "currentDate" },
-				  { "mData": "pcrSODBloomberg" },
-				  { "mData": "pcrEODBloomberg" },
-				  { "mData": "pcrSODNSE" },
 				  { "mData": "pcrEODNSE" }
 			]
 	 })

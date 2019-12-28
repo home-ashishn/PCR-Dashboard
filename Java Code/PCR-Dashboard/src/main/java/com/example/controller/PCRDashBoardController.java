@@ -11,5 +11,10 @@ public class PCRDashBoardController {
 	public String goHome(){
 		return "index";
 	}
+	
+	@RequestMapping(path="/pcr-otm", method=RequestMethod.GET)
+	public String goToPCROTMPage(){
+		return "pcr-otm-page";
+	}
 
 }

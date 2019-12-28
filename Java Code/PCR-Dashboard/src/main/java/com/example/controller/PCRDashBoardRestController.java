@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.model.PCRDataOTM;
 import com.example.model.PCRDataWhole;
 import com.example.service.PCRDashboardService;
 
@@ -18,13 +19,18 @@ public class PCRDashBoardRestController {
 	private PCRDashboardService pcrDashboardService;
 	
 	@RequestMapping(path="/pcrdata", method=RequestMethod.GET,produces="application/json")
-	public @ResponseBody List<PCRDataWhole> getAllEmployees(){
-		
-
-		
+	public @ResponseBody List<PCRDataWhole> getPCRDataWhole(){	
 		
 		List<PCRDataWhole> allPCRData = pcrDashboardService.getAllPCRData();
 		return allPCRData;
+	}
+	
+	
+	@RequestMapping(path="/pcrdata-otm", method=RequestMethod.GET,produces="application/json")
+	public @ResponseBody List<PCRDataOTM> getPCRDataOTM(){	
+		
+		List<PCRDataOTM> otmPCRData = pcrDashboardService.getPCRDataOTM();
+		return otmPCRData;
 	}
 
 

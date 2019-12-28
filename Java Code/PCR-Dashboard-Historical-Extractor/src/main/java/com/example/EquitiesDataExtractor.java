@@ -79,6 +79,47 @@ public class EquitiesDataExtractor {
 
 	}
 
+	
+	private void loadNiftyDataToDB(String filePath, int retryCount) throws Exception {
+
+//		 filePath = filePath.replace("\\\\", "\\\\");
+		// filePath = filePath.replace("\\\\", "/");
+
+
+		if (retryCount <= 0) {
+			return;
+		}
+
+
+
+		String sql = "LOAD DATA LOCAL INFILE '" + filePath + "' " + "INTO TABLE daily_equity_data "
+				+ "FIELDS TERMINATED BY ',' "
+				 + "OPTIONALLY ENCLOSED BY '\"' "
+				// + " LINES TERMINATED BY '\r\n' "
+				 + "IGNORE 1 LINES " //+ "IGNORE 1 COLUMNS "
+				+ "(@my_date,open_price,high_price,low_price,close_price,traded_quantity,traded_value) \r\n" + 
+				"		set curr_date = str_to_date(@my_date,'%d-%b-%Y'),\r\n" + 
+				"		last_price = close_price, symbol = 'NIFTY',series = 'EQ' ";
+		
+		
+
+
+		
+
+		try {
+
+			jdbcTemplate.update(sql);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			loadNiftyDataToDB(filePath, --retryCount);
+		} finally {
+			
+		}
+
+	}
+
+
 
 /*	public static void main(String[] args) throws Exception {
 
@@ -93,7 +134,9 @@ public class EquitiesDataExtractor {
 		
 		//loadDataToDB(this.folderName+"\\\\fo01032019.csv","01032019",3);
 		
-		 loadDataForDateRange();
+		loadDataForDateRange();
+		
+		// loadNiftyDataToDB("E:\\\\Self\\\\Work\\\\NSE Files Info\\\\NSE_Downloads\\\\Index_Historical\\\\csv\\\\data.csv",3);
 	}
 	
 	private void loadDataForDateRange() throws Exception {
