@@ -25,6 +25,10 @@ public class PCRDataOTM {
 	@JsonProperty
 	private Date currentDate;
 	
+	@Column(name = "pcr_otm_whole")
+	@JsonProperty
+	private float pcrOTMWhole;
+	
 	@Column(name = "pcr_otm_current_month")
 	@JsonProperty
 	private float pcrOTMCurrentMonth;
@@ -49,16 +53,28 @@ public class PCRDataOTM {
 
 
 
-	public PCRDataOTM(String symbol, Date currentDate, float pcrOTMCurrentMonth, float pcrOTMNextMonth,
-			float pcrOTMCurrentWeek, float pcrOTMNextWeek) {
+
+
+
+
+	public PCRDataOTM(String symbol, Date currentDate, float pcrOTMWhole, float pcrOTMCurrentMonth,
+			float pcrOTMNextMonth, float pcrOTMCurrentWeek, float pcrOTMNextWeek) {
 		super();
 		this.symbol = symbol;
 		this.currentDate = currentDate;
+		this.pcrOTMWhole = pcrOTMWhole;
 		this.pcrOTMCurrentMonth = pcrOTMCurrentMonth;
 		this.pcrOTMNextMonth = pcrOTMNextMonth;
 		this.pcrOTMCurrentWeek = pcrOTMCurrentWeek;
 		this.pcrOTMNextWeek = pcrOTMNextWeek;
 	}
+
+
+
+
+
+
+
 
 
 

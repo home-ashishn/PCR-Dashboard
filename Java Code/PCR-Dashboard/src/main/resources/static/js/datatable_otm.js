@@ -7,6 +7,7 @@ $(document).ready( function () {
 			"aoColumns": [
 			      { "mData": "symbol"},
 		          { "mData": "currentDate" },
+				  { "mData": "pcrOTMWhole" },
 				  { "mData": "pcrOTMCurrentMonth" },
 				  { "mData": "pcrOTMNextMonth" },
 				  { "mData": "pcrOTMCurrentWeek" },
