@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.model.FuturesInfo;
 import com.example.model.PCRDataOTM;
 import com.example.model.PCRDataWhole;
 import com.example.service.PCRDashboardService;
@@ -31,6 +32,15 @@ public class PCRDashBoardRestController {
 		
 		List<PCRDataOTM> otmPCRData = pcrDashboardService.getPCRDataOTM();
 		return otmPCRData;
+	}
+	
+	
+	@RequestMapping(path="/futures-info-data", method=RequestMethod.GET,produces="application/json")
+	public @ResponseBody List<FuturesInfo> getFuturesData(){	
+		
+		List<FuturesInfo> futuresData = pcrDashboardService.getFuturesData();
+		
+		return futuresData;
 	}
 
 

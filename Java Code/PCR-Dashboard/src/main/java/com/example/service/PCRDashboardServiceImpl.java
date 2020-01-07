@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.model.FuturesInfo;
 import com.example.model.PCRDataOTM;
 import com.example.model.PCRDataWhole;
 import com.example.model.PCRDataWholeId;
+import com.example.repository.FuturesInfoRepository;
 import com.example.repository.PCRDataOTMRepository;
 import com.example.repository.PCRDataWholeRepository;
 
@@ -19,7 +21,11 @@ public class PCRDashboardServiceImpl implements PCRDashboardService {
 
 	@Autowired
 	private PCRDataOTMRepository pcrDataOTMRepository;
+
 	
+	@Autowired
+	private FuturesInfoRepository futuresInfoRepository;
+
 	@Override
 	public List<PCRDataWhole> getAllPCRData() {
 		return pcrDataWholeRepository.findAll();
@@ -33,6 +39,12 @@ public class PCRDashboardServiceImpl implements PCRDashboardService {
 	@Override
 	public List<PCRDataOTM> getPCRDataOTM() {
 		return pcrDataOTMRepository.findAll();
+	}
+
+	@Override
+	public List<FuturesInfo> getFuturesData() {
+		// TODO Auto-generated method stub
+		return futuresInfoRepository.findAll();
 	}
 
 }

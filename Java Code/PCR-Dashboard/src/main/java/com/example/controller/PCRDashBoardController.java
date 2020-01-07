@@ -16,5 +16,10 @@ public class PCRDashBoardController {
 	public String goToPCROTMPage(){
 		return "pcr-otm-page";
 	}
+	
+	@RequestMapping(path="/futures-info", method=RequestMethod.GET)
+	public String goToFuturesInfoPage(){
+		return "futures-info-page";
+	}
 
 }

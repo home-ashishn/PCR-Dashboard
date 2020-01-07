@@ -2,6 +2,7 @@ package com.example.service;
 
 import java.util.List;
 
+import com.example.model.FuturesInfo;
 import com.example.model.PCRDataOTM;
 import com.example.model.PCRDataWhole;
 import com.example.model.PCRDataWholeId;
@@ -13,6 +14,8 @@ public interface PCRDashboardService {
 	PCRDataWhole getPCRDataBySymbol(PCRDataWholeId symbol);
 	
 	public List<PCRDataOTM> getPCRDataOTM();
+
+	public List<FuturesInfo> getFuturesData();
 
 	
 }
