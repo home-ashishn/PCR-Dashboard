@@ -161,7 +161,7 @@ public class EquitiesFileExtractor {
 
 		Date dateTo = cal.getTime();
 
-		cal.add(Calendar.DATE, -295);
+		cal.add(Calendar.DATE, -25);
 
 		Date dateTarget = cal.getTime();
 

@@ -137,38 +137,44 @@ public class DerivativesFileExtractor {
 	 * }
 	 */
 
-	private void downloadDataForDateRange() throws Exception {
+	private void downloadDataForDateRange(String dateFromString, String dateToString) throws Exception {
 
 		Calendar cal = Calendar.getInstance();
+		
+		Date dateTo = null;
+		
+		if(dateToString == null || "".equals(dateToString))
+		{
+			dateTo = cal.getTime();
+		}
 
-		Date dateTo = cal.getTime();
+		Date dateFrom = null;
+		cal.add(Calendar.DATE, -35);
 
-		cal.add(Calendar.DATE, -235);
+		dateFrom = cal.getTime();
 
-		Date dateTarget = cal.getTime();
+		Date dateCounter = dateFrom;
 
-		Date dateCounter = dateTarget;
-
-		ThreadPoolExecutor executor = new ThreadPoolExecutor(7, 14, 0L, TimeUnit.MILLISECONDS,
-				new LinkedBlockingQueue<Runnable>());
+		/*ThreadPoolExecutor executor = new ThreadPoolExecutor(7, 14, 0L, TimeUnit.MILLISECONDS,
+				new LinkedBlockingQueue<Runnable>());*/
 
 		while (dateCounter.before(dateTo)) {
 
-			String calculatedDateTarget = new SimpleDateFormat("dd-MM-yyyy").format(dateTarget);
+			String calculatedDateTarget = new SimpleDateFormat("dd-MM-yyyy").format(dateFrom);
 
-			String downloadDateTarget = new SimpleDateFormat("ddMMyyyy").format(dateTarget);
+			String downloadDateTarget = new SimpleDateFormat("ddMMyyyy").format(dateFrom);
 
 			downloadFileByDateRange(calculatedDateTarget, downloadDateTarget);
 
 			Calendar calNew = Calendar.getInstance();
 
-			calNew.setTime(dateTarget);
+			calNew.setTime(dateFrom);
 
 			calNew.add(Calendar.DATE, 1);
 
-			dateTarget = calNew.getTime();
+			dateFrom = calNew.getTime();
 			
-			dateCounter = dateTarget;
+			dateCounter = dateFrom;
 
 		}
 
@@ -213,7 +219,7 @@ public class DerivativesFileExtractor {
 
 		DerivativesFileExtractor opExtractor = new DerivativesFileExtractor();
 
-		opExtractor.downloadDataForDateRange();
+		opExtractor.downloadDataForDateRange("","");
 	}
 
 /*	
@@ -222,4 +228,10 @@ public class DerivativesFileExtractor {
 		// System.out.println(text);
 	}
 */
+	
+	boolean extractDerivativesFiles(String fromDate, String toDate){
+		
+		
+		return true;
+	}
 }

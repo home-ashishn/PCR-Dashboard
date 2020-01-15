@@ -109,8 +109,8 @@ public class FuturesDataExtractor {
 
 		Date dateCounter = dateTarget;
 
-		ThreadPoolExecutor executor = new ThreadPoolExecutor(7, 14, 0L, TimeUnit.MILLISECONDS,
-				new LinkedBlockingQueue<Runnable>());
+		/*ThreadPoolExecutor executor = new ThreadPoolExecutor(7, 14, 0L, TimeUnit.MILLISECONDS,
+				new LinkedBlockingQueue<Runnable>());*/
 
 		while (dateCounter.before(dateTo)) {
 
