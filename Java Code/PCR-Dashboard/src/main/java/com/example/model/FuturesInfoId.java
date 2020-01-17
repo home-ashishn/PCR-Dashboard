@@ -16,6 +16,9 @@ public class FuturesInfoId implements Serializable{
 	
 	
 	private Date currentDate;
+	
+	private Date expiryDate;
+
 
 
 	public String getSymbol() {
@@ -35,6 +38,16 @@ public class FuturesInfoId implements Serializable{
 
 	public void setCurrentDate(Date currentDate) {
 		this.currentDate = currentDate;
+	}
+
+
+	public Date getExpiryDate() {
+		return expiryDate;
+	}
+
+
+	public void setExpiryDate(Date expiryDate) {
+		this.expiryDate = expiryDate;
 	}
 
 

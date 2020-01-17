@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name="futures_info")
-@IdClass(PCRDataOTMId.class)
+@IdClass(FuturesInfoId.class)
 public class FuturesInfo {
 	
 
