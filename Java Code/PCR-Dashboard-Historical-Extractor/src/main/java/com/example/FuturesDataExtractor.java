@@ -103,7 +103,7 @@ public class FuturesDataExtractor {
 
 		Date dateTo = cal.getTime();
 
-		cal.add(Calendar.DATE, -375);
+		cal.add(Calendar.DATE, -25);
 
 		Date dateTarget = cal.getTime();
 

@@ -20,7 +20,7 @@ public class FuturesInfo {
 	@Id
 	@JsonProperty
 	private String symbol;
-	@Column(name = "current_date")
+	@Column(name = "curr_date")
 	@Id
 	@JsonProperty
 	private Date currentDate;

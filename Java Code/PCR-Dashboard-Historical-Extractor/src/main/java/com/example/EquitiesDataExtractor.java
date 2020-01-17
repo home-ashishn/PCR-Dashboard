@@ -136,7 +136,7 @@ public class EquitiesDataExtractor {
 		
 		loadDataForDateRange();
 		
-		// loadNiftyDataToDB("E:\\\\Self\\\\Work\\\\NSE Files Info\\\\NSE_Downloads\\\\Index_Historical\\\\csv\\\\data.csv",3);
+		loadNiftyDataToDB("E:\\\\Self\\\\Work\\\\NSE Files Info\\\\NSE_Downloads\\\\Index_Historical\\\\csv\\\\data.csv",3);
 	}
 	
 	private void loadDataForDateRange() throws Exception {
@@ -145,7 +145,7 @@ public class EquitiesDataExtractor {
 
 		Date dateTo = cal.getTime();
 
-		cal.add(Calendar.DATE, -37);
+		cal.add(Calendar.DATE, -2);
 
 		Date dateTarget = cal.getTime();
 
