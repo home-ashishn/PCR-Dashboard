@@ -7,9 +7,9 @@ select max(curr_date) from daily_option_data;
 select max(curr_date) from daily_equity_data;
 
 
-call CALCULATE_PCR('2020-01-16','2020-01-16'); 
+call CALCULATE_PCR('2020-01-17','2020-01-17'); 
 
-call CALCULATE_FUTURE_INFO('2020-01-16','2020-01-16');
+call CALCULATE_FUTURE_INFO('2020-01-17','2020-01-17');
 
 call CLEAN_DATA();
 

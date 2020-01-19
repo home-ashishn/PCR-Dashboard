@@ -17,7 +17,5 @@ $(document).ready( function () {
 			
 	 });
 	 
-		oSettings.aoPreSearchCols[ iCol ].sSearch = "^\\s*"+'1'+"\\s*$";
-		oSettings.aoPreSearchCols[ iCol ].bRegex = false;
-		oSettings.aoPreSearchCols[ iCol ].bSmart= false;});
+
 
