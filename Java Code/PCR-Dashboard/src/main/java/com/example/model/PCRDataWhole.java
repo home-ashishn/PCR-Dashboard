@@ -24,18 +24,20 @@ public class PCRDataWhole {
 	@Id
 	@JsonProperty
 	private Date currentDate;
-	@Column(name = "pcr_sod_bloomberg")
-	@JsonProperty
-	private float pcrSODBloomberg;
-	@Column(name = "pcr_eod_bloomberg", nullable=true)
-	@JsonProperty
-	private float pcrEODBloomberg;
-	@Column(name = "pcr_sod_nse")
-	@JsonProperty
-	private float pcrSODNSE;
+
 	@Column(name = "pcr_eod_nse")
 	@JsonProperty
-	private float pcrEODNSE;
+	private Float pcrEODNSE;
+	
+	
+	@Column(name = "eq_close_price")
+	@JsonProperty
+	private Float eqClosePrice;
+	
+	
+	@Column(name = "pcr_oi_whole")
+	@JsonProperty
+	private Double pcrOIWhole;
 	
 	
 	
@@ -45,16 +47,22 @@ public class PCRDataWhole {
 
 
 
-	public PCRDataWhole(String symbol, Date currentDate, float pcrSODBloomberg, float pcrEODBloomberg, float pcrSODNSE,
-			float pcrEODNSE) {
+	public PCRDataWhole(String symbol, Date currentDate, Float pcrEODNSE, Float eqClosePrice, Double pcrOIWhole) {
 		super();
 		this.symbol = symbol;
 		this.currentDate = currentDate;
-		this.pcrSODBloomberg = pcrSODBloomberg;
-		this.pcrEODBloomberg = pcrEODBloomberg;
-		this.pcrSODNSE = pcrSODNSE;
 		this.pcrEODNSE = pcrEODNSE;
+		this.eqClosePrice = eqClosePrice;
+		this.pcrOIWhole = pcrOIWhole;
 	}
+
+
+
+
+
+
+
+
 	
 
 	

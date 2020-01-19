@@ -11,11 +11,14 @@ $(document).ready( function () {
 				  { "mData": "pcrOTMCurrentMonth" },
 				  { "mData": "pcrOTMNextMonth" },
 				  { "mData": "pcrOTMCurrentWeek" },
-				  { "mData": "pcrOTMNextWeek" }
+				  { "mData": "pcrOTMNextWeek" },
+				  { "mData": "pcrOIOTM" },
+				  { "mData": "eqClosePrice" }
 			]
 	 
 			
-	 });
+	 })
+});
 	 
 
 

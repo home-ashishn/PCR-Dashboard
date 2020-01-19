@@ -7,7 +7,10 @@ $(document).ready( function () {
 			"aoColumns": [
 			      { "mData": "symbol"},
 		          { "mData": "currentDate" },
-				  { "mData": "pcrEODNSE" }
+				  { "mData": "pcrEODNSE" },
+				  { "mData": "pcrOIWhole" },
+				  { "mData": "eqClosePrice" }
+
 			]
 	 })
 });

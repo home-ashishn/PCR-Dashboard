@@ -50,6 +50,12 @@ public class FuturesInfo {
 	private Date prevDate;
 	
 	
+	@Column(name = "eq_close_price")
+	@JsonProperty
+	private Float eqClosePrice;
+	
+	
+	
 	
 	public FuturesInfo() {
 		super();
@@ -57,8 +63,9 @@ public class FuturesInfo {
 
 
 
-	public FuturesInfo(String symbol, Date currentDate, Date expiryDate, float totalOI, float oiChange,
-			float futuresPremium, float dayPremiumChange, Date prevDate) {
+
+	public FuturesInfo(String symbol, Date currentDate, Date expiryDate, Float totalOI, Float oiChange,
+			Float futuresPremium, Float dayPremiumChange, Date prevDate, Float eqClosePrice) {
 		super();
 		this.symbol = symbol;
 		this.currentDate = currentDate;
@@ -68,7 +75,16 @@ public class FuturesInfo {
 		this.futuresPremium = futuresPremium;
 		this.dayPremiumChange = dayPremiumChange;
 		this.prevDate = prevDate;
+		this.eqClosePrice = eqClosePrice;
 	}
+
+
+
+
+
+
+
+
 
 
 

@@ -27,23 +27,36 @@ public class PCRDataOTM {
 	
 	@Column(name = "pcr_otm_whole")
 	@JsonProperty
-	private float pcrOTMWhole;
+	private Float pcrOTMWhole;
 	
 	@Column(name = "pcr_otm_current_month")
 	@JsonProperty
-	private float pcrOTMCurrentMonth;
+	private Float pcrOTMCurrentMonth;
 	
 	@Column(name = "pcr_otm_next_month")
 	@JsonProperty
-	private float pcrOTMNextMonth;
+	private Float pcrOTMNextMonth;
 	
 	@Column(name = "pcr_otm_current_week")
 	@JsonProperty
-	private float pcrOTMCurrentWeek;
+	private Float pcrOTMCurrentWeek;
 	
 	@Column(name = "pcr_otm_next_week")
 	@JsonProperty
-	private float pcrOTMNextWeek;
+	private Float pcrOTMNextWeek;
+	
+	
+	@Column(name = "eq_close_price")
+	@JsonProperty
+	private Float eqClosePrice;
+	
+	@Column(name = "pcr_oi_otm")
+	@JsonProperty
+	private Double pcrOIOTM;
+	
+	
+	
+	
 	
 	
 	
@@ -57,8 +70,8 @@ public class PCRDataOTM {
 
 
 
-	public PCRDataOTM(String symbol, Date currentDate, float pcrOTMWhole, float pcrOTMCurrentMonth,
-			float pcrOTMNextMonth, float pcrOTMCurrentWeek, float pcrOTMNextWeek) {
+	public PCRDataOTM(String symbol, Date currentDate, Float pcrOTMWhole, Float pcrOTMCurrentMonth,
+			Float pcrOTMNextMonth, Float pcrOTMCurrentWeek, Float pcrOTMNextWeek, Float eqClosePrice, Double pcrOIOTM) {
 		super();
 		this.symbol = symbol;
 		this.currentDate = currentDate;
@@ -67,7 +80,23 @@ public class PCRDataOTM {
 		this.pcrOTMNextMonth = pcrOTMNextMonth;
 		this.pcrOTMCurrentWeek = pcrOTMCurrentWeek;
 		this.pcrOTMNextWeek = pcrOTMNextWeek;
+		this.eqClosePrice = eqClosePrice;
+		this.pcrOIOTM = pcrOIOTM;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -12,27 +12,14 @@ $(document).ready( function () {
 				  { "mData": "oiChange" },
 				  { "mData": "futuresPremium" },
 				  { "mData": "prevDate" },
-				  { "mData": "dayPremiumChange" }
+				  { "mData": "dayPremiumChange" },
+				  { "mData": "eqClosePrice" }
+
 			]
 	 
 			
-	 });
+	 })
+});
 	 
-	 $('.dataTables_filter input').unbind().bind('keyup', function() {
-		   var searchTerm = this.value.toLowerCase()
-		   if (!searchTerm) {
-			   table.draw();   
-		     return;
-		   }
-		   $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
-		      for (var i=0;i<data.length;i++) {
-		         if (data[i].toLowerCase() == searchTerm) return true
-		      }
-		      return false
-		   })
-		   table.draw();   
-		   $.fn.dataTable.ext.search.pop()
-		})
-	 
-
+	
 
