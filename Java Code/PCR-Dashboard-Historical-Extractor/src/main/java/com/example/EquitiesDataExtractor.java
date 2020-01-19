@@ -145,7 +145,7 @@ public class EquitiesDataExtractor {
 
 		Date dateTo = cal.getTime();
 
-		cal.add(Calendar.DATE, -2);
+		cal.add(Calendar.DATE, -3);
 
 		Date dateTarget = cal.getTime();
 
