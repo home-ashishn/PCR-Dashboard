@@ -101,7 +101,7 @@ public class OptionsDataExtractor {
 
 		Date dateTo = cal.getTime();
 
-		cal.add(Calendar.DATE, -25);
+		cal.add(Calendar.DATE, -3);
 
 		Date dateTarget = cal.getTime();
 
@@ -110,7 +110,7 @@ public class OptionsDataExtractor {
 		ThreadPoolExecutor executor = new ThreadPoolExecutor(7, 14, 0L, TimeUnit.MILLISECONDS,
 				new LinkedBlockingQueue<Runnable>());
 
-		while (dateCounter.before(dateTo)) {
+		while (!dateCounter.after(dateTo)) {
 
 
 			String downloadDateTarget = new SimpleDateFormat("ddMMyyyy").format(dateTarget);

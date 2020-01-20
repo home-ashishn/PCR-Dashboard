@@ -154,7 +154,7 @@ public class EquitiesDataExtractor {
 		ThreadPoolExecutor executor = new ThreadPoolExecutor(7, 14, 0L, TimeUnit.MILLISECONDS,
 				new LinkedBlockingQueue<Runnable>());
 
-		while (dateCounter.before(dateTo)) {
+		while (!dateCounter.after(dateTo)) {
 
 
 			String downloadDateTarget = new SimpleDateFormat("ddMMMyyyy").format(dateTarget);
