@@ -1,0 +1,131 @@
+{
+  "id": "5f0d414a-2f5f-4f57-9b61-89e2b7c6360e",
+  "version": "2.0",
+  "name": "OPT_ARCHIVE_DATA",
+  "url": "https://www.nseindia.com",
+  "tests": [{
+    "id": "813fa26f-7036-4d28-85f0-6a08089c2ca6",
+    "name": "Untitled",
+    "commands": [{
+      "id": "3e62e836-7540-4b06-91f9-c0352ae071d0",
+      "comment": "",
+      "command": "open",
+      "target": "/all-reports-derivatives",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "524ebc71-de5b-488b-8374-f49d23fd759d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x708",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a0ce841e-ac9b-404d-93ca-14522c4e1f6d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Archives",
+      "targets": [
+        ["linkText=Archives", "linkText"],
+        ["css=#cr_derv_equities .nav-item:nth-child(3)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Archives')])[13]", "xpath:link"],
+        ["xpath=//div[@id='cr_derv_equities']/div/nav/div/a[3]", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#cr_deriv_equity_archives')])[2]", "xpath:href"],
+        ["xpath=//div/a[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1bf4f37c-5690-4880-8c7c-51227a678c42",
+      "comment": "",
+      "command": "click",
+      "target": "id=cr_deriv_equity_archives_date",
+      "targets": [
+        ["id=cr_deriv_equity_archives_date", "id"],
+        ["css=#cr_deriv_equity_archives_date", "css:finder"],
+        ["xpath=//input[@id='cr_deriv_equity_archives_date']", "xpath:attributes"],
+        ["xpath=//div[@id='cr_deriv_equity_archives']/div/div/div[2]/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fdd6a72a-d717-47e6-957e-fac596c5da66",
+      "comment": "",
+      "command": "click",
+      "target": "css=.gj-picker > div > div > div:nth-child(1)",
+      "targets": [
+        ["css=.gj-picker > div > div > div:nth-child(1)", "css:finder"],
+        ["xpath=//div[17]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b55cbb39-f2ba-406c-8c86-7eafd510530f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.gj-picker > div > div > div:nth-child(1)",
+      "targets": [
+        ["css=.gj-picker > div > div > div:nth-child(1)", "css:finder"],
+        ["xpath=//div[17]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "82091f98-5d53-4d51-bd2d-6eef4d4b7c1f",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(2) > .current-month:nth-child(2) > div",
+      "targets": [
+        ["css=tr:nth-child(2) > .current-month:nth-child(2) > div", "css:finder"],
+        ["xpath=//tr[2]/td[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d8e145eb-3423-4e24-9aa2-13977346bb6b",
+      "comment": "",
+      "command": "click",
+      "target": "css=#cr_deriv_equity_archives .col-lg-4:nth-child(9) .pdf-download-link",
+      "targets": [
+        ["css=#cr_deriv_equity_archives .col-lg-4:nth-child(9) .pdf-download-link", "css:finder"],
+        ["xpath=(//a[@onclick=\"SingledownloadReports('#cr_deriv_equity_archives', 'equity', this)\"])[9]", "xpath:attributes"],
+        ["xpath=//div[@id='cr_deriv_equity_archives']/div/div[3]/div[9]/div/div/span/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'javascript:;')])[76]", "xpath:href"],
+        ["xpath=//div[3]/div[9]/div/div/span/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "130c9bb2-a9e0-4d44-accd-2ee077a7f05c",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#cr_deriv_equity_archives .col-lg-4:nth-child(9) .pdf-download-link",
+      "targets": [
+        ["css=#cr_deriv_equity_archives .col-lg-4:nth-child(9) .pdf-download-link", "css:finder"],
+        ["xpath=(//a[@onclick=\"SingledownloadReports('#cr_deriv_equity_archives', 'equity', this)\"])[9]", "xpath:attributes"],
+        ["xpath=//div[@id='cr_deriv_equity_archives']/div/div[3]/div[9]/div/div/span/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'javascript:;')])[76]", "xpath:href"],
+        ["xpath=//div[3]/div[9]/div/div/span/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e5fc8957-e584-4e44-8ba6-1177a7673c5f",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=#cr_deriv_equity_archives .col-lg-4:nth-child(9) .pdf-download-link",
+      "targets": [
+        ["css=#cr_deriv_equity_archives .col-lg-4:nth-child(9) .pdf-download-link", "css:finder"],
+        ["xpath=(//a[@onclick=\"SingledownloadReports('#cr_deriv_equity_archives', 'equity', this)\"])[9]", "xpath:attributes"],
+        ["xpath=//div[@id='cr_deriv_equity_archives']/div/div[3]/div[9]/div/div/span/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'javascript:;')])[76]", "xpath:href"],
+        ["xpath=//div[3]/div[9]/div/div/span/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "02847518-285f-4263-9c99-4846a483ea15",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["813fa26f-7036-4d28-85f0-6a08089c2ca6"]
+  }],
+  "urls": ["https://www.nseindia.com/"],
+  "plugins": []
+}
