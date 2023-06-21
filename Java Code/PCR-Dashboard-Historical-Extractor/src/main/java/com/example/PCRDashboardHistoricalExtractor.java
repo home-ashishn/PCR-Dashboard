@@ -18,9 +18,11 @@ public class PCRDashboardHistoricalExtractor {
 		
 		ctx.getBean(OptionsDataExtractor.class).manageExtraction();
 		
-		ctx.getBean(FuturesDataExtractor.class).manageExtraction();
-		
-		ctx.getBean(EquitiesDataExtractor.class).manageExtraction();
+		/*
+		 * ctx.getBean(FuturesDataExtractor.class).manageExtraction();
+		 * 
+		 * ctx.getBean(EquitiesDataExtractor.class).manageExtraction();
+		 */
 
 		
 

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Built-By: rh0242
-Build-Jdk: 17.0.5
+Built-By: parve
+Build-Jdk: 17.0.6
 Implementation-Title: PCR-Dashboard-Historical-Extractor
 Implementation-Version: 0.0.1-SNAPSHOT
 Implementation-Vendor-Id: com.pcr.historic
