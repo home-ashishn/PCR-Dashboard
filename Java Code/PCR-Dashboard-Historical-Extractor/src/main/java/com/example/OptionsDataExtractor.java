@@ -38,7 +38,7 @@ public class OptionsDataExtractor {
 
 	private void setUp() {
 
-		folderName = "C:\\nse-historical-data";
+		folderName = "C:\\\\nse-historical-data";
 	}
 
 	private void loadDataToDB(String filePath, String dateOfUpload, int retryCount) throws Exception {
@@ -54,15 +54,15 @@ public class OptionsDataExtractor {
 
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pcr_dashboard?autoReconnect=true&useSSL=false", "root", "root");
 
-		String sql = "LOAD DATA LOCAL INFILE '" + filePath + "' " + "INTO TABLE daily_option_data "
+		String sql = "LOAD DATA INFILE '" + filePath + "' IGNORE " + "INTO TABLE daily_option_data  "
 				+ "FIELDS TERMINATED BY ',' "
 				// + "OPTIONALLY ENCLOSED BY '\"' "
 				// + " LINES TERMINATED BY '\r\n' "
 				+ "IGNORE 1 LINES " // + "IGNORE 1 COLUMNS "
-				+ "(@dummy,SYMBOL,@my_date,strike_price,option_type,open_price,high_price,low_price,close_price,"
+				+ "(@dummy,@my_symbol,@my_date,strike_price,option_type,open_price,high_price,low_price,close_price,"
 				+ "open_interest,traded_quantity,no_of_contracts,no_of_trades,notional_value," + "premium_value) "
 				+ "set exp_date = str_to_date(@my_date,'%d/%m/%Y')," + " curr_date = str_to_date('" + dateOfUpload
-				+ "','%d%m%Y') ";
+				+ "','%d%m%Y'), symbol = trim(@my_symbol) ";
 
 		PreparedStatement pstmt = con.prepareStatement(sql);
 
@@ -77,7 +77,8 @@ public class OptionsDataExtractor {
 			if(con!=null) {
 				con.close();}
 		}
-			
+
+					
 
 	}
 
@@ -115,7 +116,7 @@ public class OptionsDataExtractor {
 
 			String downloadDateTarget = new SimpleDateFormat("ddMMyyyy").format(dateTarget);
 
-			loadDataToDB(folderName + "\\\\op" + downloadDateTarget + ".csv", downloadDateTarget, 3);
+			loadDataToDB(folderName+"\\\\fo" +downloadDateTarget+ "\\\\op" + downloadDateTarget + ".csv", downloadDateTarget, 3);
 
 			Calendar calNew = Calendar.getInstance();
 

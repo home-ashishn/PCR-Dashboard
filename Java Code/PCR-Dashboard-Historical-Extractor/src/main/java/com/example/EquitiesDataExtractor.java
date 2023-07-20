@@ -35,7 +35,7 @@ public class EquitiesDataExtractor {
 	
 	private void setUp() {
 		
-		folderName = "E:\\\\Self\\\\Work\\\\NSE Files Info\\\\NSE_Downloads\\\\EQ_Historical\\\\csv";
+		folderName = "C:\\\\nse-historical-data";
 	}
 
 

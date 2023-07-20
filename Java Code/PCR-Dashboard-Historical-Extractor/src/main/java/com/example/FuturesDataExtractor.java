@@ -1,5 +1,8 @@
 package com.example;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -35,58 +38,68 @@ public class FuturesDataExtractor {
 	
 	private void setUp() {
 		
-		folderName = "E:\\\\Self\\\\Work\\\\NSE Files Info\\\\NSE_Downloads\\\\FO_Historical\\\\csv";
+		folderName = "C:\\\\nse-historical-data";
 	}
 
 
 	
 	
 
-	
-	private void loadDataToDB(String filePath, String dateOfUpload,  int retryCount) throws Exception {
+
+	private void loadDataToDB(String filePath, String dateOfUpload, int retryCount) throws Exception {
 
 //		 filePath = filePath.replace("\\\\", "\\\\");
 		// filePath = filePath.replace("\\\\", "/");
-
 
 		if (retryCount <= 0) {
 			return;
 		}
 
+		Class.forName("com.mysql.jdbc.Driver");
 
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pcr_dashboard?autoReconnect=true&useSSL=false", "root", "root");
 
-		String sql = "LOAD DATA LOCAL INFILE '" + filePath + "' " + "INTO TABLE daily_future_data "
+		String sql = "LOAD DATA INFILE '" + filePath + "' IGNORE " + "INTO TABLE daily_future_data  "
 				+ "FIELDS TERMINATED BY ',' "
 				// + "OPTIONALLY ENCLOSED BY '\"' "
 				// + " LINES TERMINATED BY '\r\n' "
-				 + "IGNORE 1 LINES " //+ "IGNORE 1 COLUMNS "
-				+ "(@dummy,SYMBOL,@my_date,open_price,high_price,low_price,close_price,"
-				+ "open_interest,traded_value,traded_quantity,no_of_contracts,no_of_trades) " 
-				+ "set exp_date = str_to_date(@my_date,'%d/%m/%Y'),"
-						+ " curr_date = str_to_date('"+dateOfUpload+"','%d%m%Y') ";
+				+ "IGNORE 1 LINES " // + "IGNORE 1 COLUMNS "
+				+ "(@dummy,@my_symbol,@my_date,open_price,high_price,low_price,close_price,"
+				+ "open_interest,traded_quantity,traded_value,no_of_contracts,no_of_trades) "
+				+ "set exp_date = str_to_date(@my_date,'%d/%m/%Y')," + " curr_date = str_to_date('" + dateOfUpload
+				+ "','%d%m%Y'), symbol = trim(@my_symbol) ";
 
-		
+		PreparedStatement pstmt = con.prepareStatement(sql);
 
 		try {
-
-			jdbcTemplate.update(sql);
-
+			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 			loadDataToDB(filePath, dateOfUpload, --retryCount);
 		} finally {
-			
+			if(pstmt!=null) {
+			pstmt.close();}
+			if(con!=null) {
+				con.close();}
 		}
+			
 
 	}
 
 
-/*	public static void main(String[] args) throws Exception {
-
-		FuturesDataExtractor opExtractor = new FuturesDataExtractor();
-
-		opExtractor.loadDataToDB(opExtractor.folderName+"\\\\op01032019.csv","01032019",3);
-	}*/
+	
+	  public static void main(String[] args) throws Exception {
+	  
+	  FuturesDataExtractor futuresDataExtractor = new FuturesDataExtractor();
+	  
+		/*
+		 * opExtractor.loadDataToDB(opExtractor.folderName+"\\\\op01032019.csv",
+		 * "01032019",3);
+		 */ 
+	  
+	  futuresDataExtractor.loadDataForDateRange();
+	  }
+	 
 	
 	public void manageExtraction() throws Exception {
 		
@@ -103,7 +116,7 @@ public class FuturesDataExtractor {
 
 		Date dateTo = cal.getTime();
 
-		cal.add(Calendar.DATE, -3);
+		cal.add(Calendar.DATE, -365);
 
 		Date dateTarget = cal.getTime();
 
@@ -117,7 +130,7 @@ public class FuturesDataExtractor {
 
 			String downloadDateTarget = new SimpleDateFormat("ddMMyyyy").format(dateTarget);
 
-			loadDataToDB(folderName+"\\\\fo"+downloadDateTarget+".csv",downloadDateTarget,3);
+			loadDataToDB(folderName+"\\\\fo" +downloadDateTarget+ "\\\\fo" + downloadDateTarget + ".csv", downloadDateTarget, 3);
 
 			Calendar calNew = Calendar.getInstance();
 
