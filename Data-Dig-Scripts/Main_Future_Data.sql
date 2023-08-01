@@ -1,11 +1,7 @@
--- call CALCULATE_FUTURE_INFO('2022-07-28','2022-07-28');
+-- call CALCULATE_FUTURE_INFO('2023-07-31','2023-07-31');
 
-set @SYMBOL = 'TCS';	
-set @target_date = '2023-02-17';
-set @near_exp = '2023-02-23';
--- set @next_exp = '2022-08-25';
-set @next_exp = '2023-03-29';
-
+set @SYMBOL = 'HINDUNILVR';
+ 
 /*
 
 select * from futures_info fi 
@@ -44,4 +40,5 @@ select symbol , fi.current_date , sum(total_oi)
 -- ,sum(oi_change) 
 from futures_info fi 
 where symbol  = @SYMBOL
-group by symbol, fi.current_date ;
+group by symbol, fi.current_date
+order by fi.current_date desc;

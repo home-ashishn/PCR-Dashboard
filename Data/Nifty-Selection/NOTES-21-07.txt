@@ -1,0 +1,26 @@
+
+itc - convergence
+
+ICICIBANK - convergence
+
+BHARTIARTL - convergence - INVALID
+
+reliance - good signal
+
+baj finance - missed CMF divergence by very small amount
+
+SBI - need to relook
+
+
+
+-------------------------------------------------------------------
+
+PAPER TRADING - START TIME - 
+
+reliance - 2540 PE july - 1 lot traded at 39.05 - 12.16 pm - FAILED MISERABLY - SL - 20% = 250*8 = 2000
+
+SBIN - 615 CE july - 2 lots placed at 8.25 , 1 lot at 9.25 - 12.16 pm - WRONG LEVELS NOTED HERE - DO NOT MATCH WITH CHART !!
+
+reliance - 2540 pe july - 1 lot traded at 39.5 - 12.16 pm
+
+

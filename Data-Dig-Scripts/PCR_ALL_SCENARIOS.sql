@@ -1,6 +1,6 @@
--- call CALCULATE_PCR('2023-06-19','2023-06-26');
+-- call CALCULATE_PCR('2023-07-28','2023-07-28');
 
-set @SYMBOL = 'TCS';
+set @SYMBOL = 'WIPRO';
 
 select distinct  pdw2.current_date, pdw2.pcr_eod_nse, 
 pdw.current_date, pdw.pcr_eod_nse
@@ -10,20 +10,22 @@ where 1=1
  and pdw. symbol = @SYMBOL 
  and pdw2. symbol = pdw. symbol 
  -- and pdw.current_date > date_sub(curtime() ,interval 10 minute)
-and pdw.current_date = date_add(pdw2.current_date,interval 1 day )
+ and pdw.current_date = date_add(pdw2.current_date,interval 1 day )
 and abs(pdw.pcr_eod_nse - pdw2.pcr_eod_nse) >= 0.07
 -- and pdw.stock_pcr_correlation > 0.8
 order by pdw2.current_date desc;
 
 select pcr_eod_nse,pcr_data_whole.current_date from pcr_data_whole
-where symbol = @SYMBOL;
+where symbol = @SYMBOL order by pcr_data_whole.current_date desc;
 
 /*select pcr_eod_nse,pcr_data_whole.current_date from pcr_data_whole
 where symbol = @SYMBOL;*/
 
-select min(pcr_eod_nse),max(pcr_eod_nse),month(pcr_data_whole.current_date) from pcr_data_whole
+select min(pcr_eod_nse),max(pcr_eod_nse),
+month(pcr_data_whole.current_date),year(pcr_data_whole.current_date)
+from pcr_data_whole
 where symbol = @SYMBOL
-group by month(pcr_data_whole.current_date);
+group by month(pcr_data_whole.current_date),year(pcr_data_whole.current_date);
 
 select distinct exp_date  from daily_option_data_archive 
 where symbol not in ('NIFTY','BANKNIFTY','FINNIFTY','MIDCPNIFTY');
