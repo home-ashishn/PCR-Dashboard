@@ -1,6 +1,6 @@
--- call CALCULATE_FUTURE_INFO('2023-07-31','2023-07-31');
+-- call CALCULATE_FUTURE_INFO('2023-08-03','2023-08-03');
 
-set @SYMBOL = 'HINDUNILVR';
+set @SYMBOL = 'TECHM';
  
 /*
 
@@ -34,7 +34,8 @@ group by symbol, fi.current_date ;
 select *
 -- ,sum(oi_change) 
 from futures_info fi 
-where symbol  = @SYMBOL;
+where symbol  = @SYMBOL
+order by fi.current_date desc;;
 
 select symbol , fi.current_date , sum(total_oi)
 -- ,sum(oi_change) 

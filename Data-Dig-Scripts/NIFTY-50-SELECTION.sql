@@ -1,7 +1,8 @@
--- call CALCULATE_PCR('2023-07-31','2023-07-31');
+-- call CALCULATE_PCR('2023-08-09','2023-08-09');
+-- call CALCULATE_FUTURE_INFO('2023-08-09','2023-08-09');
 
-set @target_difference = 0.06;
-set @days_back_range = 2;
+set @target_difference = 0.05;
+set @days_back_range = 3;
 set @days_difference = 3;
 
 select

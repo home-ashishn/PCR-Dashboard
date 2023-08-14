@@ -1,8 +1,8 @@
 -- CALL `pcr_dashboard`.`CALCULATE_PCR`('2023-07-26','2023-07-28');
 set @target_expiry_date = '2023-08-31';
-set @target_difference = 0.02;
+set @target_difference = 0.06;
 set @days_back_range = 2;
-set @days_difference = 3;
+set @days_difference = 1;
 
 select
 	distinct pdw2.symbol ,
