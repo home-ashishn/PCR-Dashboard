@@ -1,6 +1,6 @@
 -- call CALCULATE_PCR('2023-07-31','2023-07-31');
 
-set @SYMBOL = 'M&M';
+set @SYMBOL = 'TCS';
 set @target_expiry_date = '2023-08-31';
 
 

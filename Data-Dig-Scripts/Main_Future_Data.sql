@@ -1,6 +1,6 @@
 -- call CALCULATE_FUTURE_INFO('2023-08-03','2023-08-03');
 
-set @SYMBOL = 'TECHM';
+set @SYMBOL = 'TCS';
  
 /*
 

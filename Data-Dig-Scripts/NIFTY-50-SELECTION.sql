@@ -2,8 +2,9 @@
 -- call CALCULATE_FUTURE_INFO('2023-08-09','2023-08-09');
 
 set @target_difference = 0.05;
-set @days_back_range = 3;
-set @days_difference = 3;
+set @days_difference = 1;
+set @days_back_range = @days_difference+1;
+
 
 select
 	distinct pdw2.symbol ,
