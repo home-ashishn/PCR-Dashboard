@@ -1,5 +1,5 @@
 -- CALL `pcr_dashboard`.`CALCULATE_PCR`('2023-07-26','2023-07-28');
-set @target_expiry_date = '2023-08-31';
+set @target_expiry_date = '2023-09-28';
 
 
  	set @target_difference = 0.05;

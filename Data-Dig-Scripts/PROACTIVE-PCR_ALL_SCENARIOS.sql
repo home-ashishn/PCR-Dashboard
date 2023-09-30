@@ -11,6 +11,7 @@ pcr_data_whole pdw3
 where 1=1
  and pdw. symbol = @SYMBOL 
  and pdw2. symbol = pdw. symbol 
+ 
  and pdw3. symbol = pdw. symbol 
  -- and pdw.current_date > date_sub(curtime() ,interval 10 minute)
  and pdw.current_date = date_add(pdw2.current_date,interval 1 day )
